@@ -10,6 +10,10 @@ import Foundation
 typealias JSONTask = URLSessionDataTask
 typealias JSONcompletionHandler = ([String: AnyObject]?, HTTPURLResponse?, Error?) -> Void
 
+protocol JSONDecodable {
+    init?(JSON: [String: AnyObject])
+}
+
 protocol FinalURLPoint {
     var baseURL: URL {get}
     var path: String {get} //добавляемая часть url
