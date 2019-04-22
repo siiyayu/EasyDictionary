@@ -8,7 +8,7 @@
 
 import Foundation
 
-public var word: String = ""
+public var askword: String = ""
 
 
 enum TranslationType: FinalURLPoint {
@@ -20,8 +20,8 @@ enum TranslationType: FinalURLPoint {
     
     var path: String {
         switch self {
-        case .Basic(let apiKey, let word):
-            return "\(apiKey)/&lang=en-ru&text=\(word)"
+        case .Basic(let apiKey, let askword):
+            return "\(apiKey)/&lang=en-ru&text=\(askword)"
         }
     }
     var request: URLRequest {
@@ -64,9 +64,26 @@ final class APITranslationManager: APIManager {
     }
     
     func fetchWordWith(word: String, completionHandler: (APIResult<CurrentWord>) -> Void) {
-        let request = TranslationType.Basic(apiKey: self.apiKey, word: word).request
+        let request = TranslationType.Basic(apiKey: self.apiKey, word: askword).request
         fetch(request: request, parse: {(json) -> CurrentWord? in
-            if let dictionary = json["def"] as? [
+            if let wordList = json as? Dictionary {
+                if let definition = wordList["def"] as? Array {
+                    if let definitionFirst = definition[0] as? Dictionary {
+                        if let word = definitionFirst["text"] as? String {
+                            if let tr = definitionFirst["tr"] as? Array {
+                                if let trFirst = tr[0] as? Dictionary {
+                                    if let syns = trFirst["syn"] as? Array {
+                                        var trans = [String]
+                                        for syn in syns {
+                                            trans.append(syn["text"])
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }, completionHandler: <#T##(APIResult<_>) -> Void#>)
     }
     

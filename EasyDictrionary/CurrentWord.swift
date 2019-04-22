@@ -15,3 +15,9 @@ struct CurrentWord{
     let translations: [String]
     //let synonims: [String]
 }
+
+extension CurrentWord: JSONDecodable {
+    init?(JSON: [AnyObject]) {
+        guard let word = JSON[
+    }
+}
