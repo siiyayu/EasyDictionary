@@ -8,10 +8,10 @@
 
 import Foundation
 typealias JSONTask = URLSessionDataTask
-typealias JSONcompletionHandler = ([String: AnyObject]?, HTTPURLResponse?, Error?) -> Void
+typealias JSONcompletionHandler = ([String: Any]?, HTTPURLResponse?, Error?) -> Void
 
 protocol JSONDecodable {
-    init?(JSON: [String: AnyObject])
+    init?(JSON: JSONdataStruct)
 }
 
 protocol FinalURLPoint {
@@ -26,10 +26,14 @@ enum APIResult<T> {
 }
 
 protocol APIManager {
+    
     var sessionConfiguration: URLSessionConfiguration { get }
+    
     var session: URLSession { get }
-    func JSONTaskWith(request: URLRequest, completionHandler: JSONcompletionHandler) -> JSONTask
-    func fetch<T: JSONDecodable>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void)
+    
+    func JSONTaskWith(request: URLRequest, completionHandler:  @escaping JSONcompletionHandler) -> JSONTask
+    
+    func fetch<T: JSONDecodable>(request: URLRequest, parse: @escaping ([String: Any]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void)
 }
 
 extension APIManager {
@@ -51,7 +55,7 @@ extension APIManager {
                     switch HTTPResponse.statusCode {
                     case 200:
                         do {
-                            let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
+                            let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
                             completionHandler(json, HTTPResponse, nil)
                         } catch let error as NSError {
                             completionHandler(nil, HTTPResponse, error)
@@ -65,7 +69,7 @@ extension APIManager {
         return dataTask
     }
 
-func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) {
+func fetch<T>(request: URLRequest, parse: @escaping ([String: Any]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) {
     let dataTask = JSONTaskWith(request: request) { (json, response, error) in
         guard let json = json else {
         if let error = error {

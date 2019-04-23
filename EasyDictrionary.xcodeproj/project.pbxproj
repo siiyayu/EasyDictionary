@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		724A7096226F8D40004185D0 /* JSONDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A7095226F8D40004185D0 /* JSONDataStruct.swift */; };
 		72810374226BBBE3006E2443 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72810373226BBBE3006E2443 /* ErrorManager.swift */; };
-		72810376226C641C006E2443 /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72810375226C641C006E2443 /* TranslationManager.swift */; };
+		72810376226C641C006E2443 /* APITranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72810375226C641C006E2443 /* APITranslationManager.swift */; };
 		72913A86226B8D6700556CDA /* CurrentWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72913A85226B8D6700556CDA /* CurrentWord.swift */; };
 		72913A88226BB00100556CDA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72913A87226BB00100556CDA /* APIManager.swift */; };
 		72DEB4B22254B07E00B0F086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DEB4B12254B07E00B0F086 /* AppDelegate.swift */; };
@@ -40,8 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		724A7095226F8D40004185D0 /* JSONDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataStruct.swift; sourceTree = "<group>"; };
 		72810373226BBBE3006E2443 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
-		72810375226C641C006E2443 /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
+		72810375226C641C006E2443 /* APITranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITranslationManager.swift; sourceTree = "<group>"; };
 		72913A85226B8D6700556CDA /* CurrentWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWord.swift; sourceTree = "<group>"; };
 		72913A87226BB00100556CDA /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		72DEB4AE2254B07E00B0F086 /* EasyDictrionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyDictrionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,9 +115,10 @@
 				72DEB4B32254B07E00B0F086 /* ViewController.swift */,
 				72DEB4B52254B07E00B0F086 /* Main.storyboard */,
 				72913A85226B8D6700556CDA /* CurrentWord.swift */,
+				724A7095226F8D40004185D0 /* JSONDataStruct.swift */,
 				72DEB4E12254CDAF00B0F086 /* AddWordViewController.swift */,
 				72913A87226BB00100556CDA /* APIManager.swift */,
-				72810375226C641C006E2443 /* TranslationManager.swift */,
+				72810375226C641C006E2443 /* APITranslationManager.swift */,
 				72810373226BBBE3006E2443 /* ErrorManager.swift */,
 				72DEB4DF2254C83500B0F086 /* WordTableViewCell.swift */,
 				72DEB4B82254B08000B0F086 /* Assets.xcassets */,
@@ -277,9 +280,10 @@
 				72913A88226BB00100556CDA /* APIManager.swift in Sources */,
 				72DEB4B42254B07E00B0F086 /* ViewController.swift in Sources */,
 				72810374226BBBE3006E2443 /* ErrorManager.swift in Sources */,
+				724A7096226F8D40004185D0 /* JSONDataStruct.swift in Sources */,
 				72DEB4E02254C83500B0F086 /* WordTableViewCell.swift in Sources */,
 				72913A86226B8D6700556CDA /* CurrentWord.swift in Sources */,
-				72810376226C641C006E2443 /* TranslationManager.swift in Sources */,
+				72810376226C641C006E2443 /* APITranslationManager.swift in Sources */,
 				72DEB4E22254CDAF00B0F086 /* AddWordViewController.swift in Sources */,
 				72DEB4B22254B07E00B0F086 /* AppDelegate.swift in Sources */,
 			);
